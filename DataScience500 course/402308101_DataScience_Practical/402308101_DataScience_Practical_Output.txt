@@ -1,0 +1,111 @@
+C:\Users\Shivaar\AppData\Local\Programs\Python\Python313\python.exe "C:\Users\Shivaar\PycharmProjects\DataScience500 course\402308101_DataScience_Practical\402308101_DataScience_Practical.py" 
+  student_id  ...                   learning_comment
+0      DS001  ...  Enjoys practical Python exercises
+1      DS002  ...          Finds NumPy arrays useful
+2      DS003  ...    Would like more worked examples
+3      DS004  ...     Enjoys analysing real datasets
+4      DS005  ...      Needs help with Python syntax
+
+[5 rows x 10 columns]
+   student_id  ...                   learning_comment
+45      DS046  ...       Connectivity limits practice
+46      DS047  ...        Understands mean and median
+47      DS048  ...  Completes extra coding challenges
+48      DS049  ...      Would like downloadable notes
+49      DS050  ...         Enjoys working with arrays
+
+[5 rows x 10 columns]
+(50, 10)
+Index(['student_id', 'programme', 'study_mode', 'satisfaction_level',
+       'campus_temperature_c', 'study_hours_per_week', 'assessment_score',
+       'monthly_data_spend_zar', 'modules_registered', 'learning_comment'],
+      dtype='str')
+student_id                    str
+programme                     str
+study_mode                    str
+satisfaction_level            str
+campus_temperature_c      float64
+study_hours_per_week        int64
+assessment_score            int64
+monthly_data_spend_zar      int64
+modules_registered          int64
+learning_comment              str
+dtype: object
+student_id                0
+programme                 0
+study_mode                0
+satisfaction_level        0
+campus_temperature_c      0
+study_hours_per_week      0
+assessment_score          0
+monthly_data_spend_zar    0
+modules_registered        0
+learning_comment          0
+dtype: int64
+0
+Mean assessment score: 70.24
+Median assessment score: 71.0
+Minimum assessment score: 38
+Maximum assessment score: 98
+Range of assessment scores: 60
+Variance of assessment scores: 222.42239999999998
+Standard deviation of assessment scores: 14.913832505429314
+Mean study hours per week: 12.62
+Median study hours per week: 12.0
+Minimum study hours per week: 2
+Maximum study hours per week: 25
+Range of study hours per week: 23
+Variance of study hours per week: 33.0356
+Standard deviation of study hours per week: 5.747660393586246
+Mean monthly data spend (ZAR): 483.4
+Median monthly data spend (ZAR): 415.0
+Minimum monthly data spend (ZAR): 170
+Maximum monthly data spend (ZAR): 1350
+Range of monthly data spend (ZAR): 1180
+Variance of monthly data spend (ZAR): 70694.44
+Standard deviation of monthly data spend (ZAR): 265.8842605345416
+Mode of programme: Computer Science
+Mode of study mode: Full-time
+Mode of satisfaction level: High
+Students per programme:
+ programme
+Information Technology    13
+Computer Science          13
+Information Systems       12
+Data Analytics            12
+Name: count, dtype: int64
+Students per study mode:
+ study_mode
+Full-time    22
+Part-time    14
+Online       14
+Name: count, dtype: int64
+Students per satisfaction level:
+ satisfaction_level
+High         19
+Medium       12
+Very High    11
+Low           6
+Very Low      2
+Name: count, dtype: int64
+Sorted assessment scores:
+ [38 42 44 45 47 49 51 54 56 57 58 59 60 61 62 63 63 64 65 66 67 68 69 70
+ 71 71 72 73 74 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 94
+ 96 98]
+First five assessment scores: [38 42 44 45 47]
+Last five assessment scores: [90 91 94 96 98]
+Assessment scores greater than or equal to 75: [75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 94 96 98]
+Student with highest assessment score:
+    student_id  ...                   learning_comment
+47      DS048  ...  Completes extra coding challenges
+
+[1 rows x 10 columns]
+Student with lowest assessment score:
+    student_id  ...               learning_comment
+35      DS036  ...  Missed several study sessions
+
+[1 rows x 10 columns]
+Number of students scoring 50 or higher: 44
+Number of students scoring below 50: 6
+
+Process finished with exit code 0

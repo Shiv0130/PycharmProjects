@@ -1,0 +1,51 @@
+student_id,programme,study_mode,satisfaction_level,campus_temperature_c,study_hours_per_week,assessment_score,monthly_data_spend_zar,modules_registered,learning_comment
+DS001,Information Technology,Full-time,High,22.4,12,68,320,5,Enjoys practical Python exercises
+DS002,Computer Science,Full-time,Very High,23.1,18,82,450,6,Finds NumPy arrays useful
+DS003,Information Systems,Part-time,Medium,21.8,9,61,280,4,Would like more worked examples
+DS004,Data Analytics,Full-time,High,24.0,15,76,390,5,Enjoys analysing real datasets
+DS005,Information Technology,Online,Low,20.6,6,54,510,3,Needs help with Python syntax
+DS006,Computer Science,Full-time,Very High,22.9,20,88,600,6,Confident with calculations
+DS007,Information Systems,Part-time,High,19.7,11,70,250,4,Prefers group activities
+DS008,Data Analytics,Online,Medium,25.2,10,65,720,5,Internet connection is sometimes slow
+DS009,Information Technology,Full-time,High,23.6,14,73,340,5,Likes using Jupyter Notebook
+DS010,Computer Science,Part-time,Low,21.2,5,49,210,3,Struggles with loops
+DS011,Information Systems,Online,Medium,18.9,8,58,480,4,Enjoys flexible online learning
+DS012,Data Analytics,Full-time,Very High,24.7,22,91,550,6,Wants more challenging exercises
+DS013,Information Technology,Part-time,High,22.0,13,69,300,4,Understands data types well
+DS014,Computer Science,Online,Medium,26.1,9,63,850,5,Prefers short video demonstrations
+DS015,Information Systems,Full-time,High,20.3,16,78,270,5,Enjoys class discussions
+DS016,Data Analytics,Part-time,Very Low,23.8,3,42,190,3,Needs additional tutoring
+DS017,Information Technology,Online,High,25.5,12,71,640,4,CSV import was straightforward
+DS018,Computer Science,Full-time,Very High,21.5,19,86,410,6,Likes experimenting with code
+DS019,Information Systems,Part-time,Medium,19.4,7,57,230,4,Needs more time for assignments
+DS020,Data Analytics,Full-time,High,22.7,17,80,500,5,Statistics examples are relevant
+DS021,Information Technology,Full-time,Medium,24.3,10,64,360,5,Would like revision quizzes
+DS022,Computer Science,Online,High,27.0,14,75,930,5,Uses mobile data for classes
+DS023,Information Systems,Full-time,Very High,20.8,21,89,310,6,Enjoys independent practice
+DS024,Data Analytics,Part-time,Medium,23.3,8,60,260,4,Finds variance confusing
+DS025,Information Technology,Online,Low,26.4,4,47,780,3,Needs a Python refresher
+DS026,Computer Science,Full-time,High,22.2,15,77,430,6,Comfortable with NumPy
+DS027,Information Systems,Part-time,High,18.6,12,72,220,4,Likes examples from business
+DS028,Data Analytics,Online,Very High,25.8,18,84,690,5,Enjoys data exploration
+DS029,Information Technology,Full-time,Medium,21.9,9,62,330,5,Practises code after class
+DS030,Computer Science,Part-time,High,24.5,13,74,290,4,Wants more array exercises
+DS031,Information Systems,Online,Low,27.3,6,51,880,3,Has limited study time
+DS032,Data Analytics,Full-time,Very High,23.0,24,94,520,6,Interested in machine learning
+DS033,Information Technology,Part-time,Medium,19.9,8,59,240,4,Prefers step by step instructions
+DS034,Computer Science,Full-time,High,22.6,16,81,460,6,Enjoys solving coding problems
+DS035,Information Systems,Online,High,26.7,11,67,810,5,Finds online resources helpful
+DS036,Data Analytics,Part-time,Very Low,20.1,2,38,170,3,Missed several study sessions
+DS037,Information Technology,Full-time,Very High,21.4,20,87,350,5,Confident identifying data levels
+DS038,Computer Science,Online,Medium,28.2,10,66,1200,5,Data costs affect participation
+DS039,Information Systems,Full-time,High,19.2,14,79,280,5,Enjoys interpreting results
+DS040,Data Analytics,Full-time,Very High,24.9,23,96,580,6,Would like a research project
+DS041,Information Technology,Part-time,Low,18.3,5,45,200,3,Needs practice with lists
+DS042,Computer Science,Full-time,High,23.5,17,83,440,6,Likes descriptive statistics
+DS043,Information Systems,Online,Medium,27.6,7,56,950,4,Works full time while studying
+DS044,Data Analytics,Part-time,High,20.9,13,74,260,4,Enjoys collaborative learning
+DS045,Information Technology,Full-time,Very High,22.1,19,90,370,5,Python feels easy to read
+DS046,Computer Science,Online,Low,29.1,4,44,1350,3,Connectivity limits practice
+DS047,Information Systems,Part-time,High,18.8,12,71,230,4,Understands mean and median
+DS048,Data Analytics,Full-time,Very High,23.9,25,98,610,6,Completes extra coding challenges
+DS049,Information Technology,Online,Medium,26.0,9,63,760,4,Would like downloadable notes
+DS050,Computer Science,Full-time,High,21.7,16,85,420,6,Enjoys working with arrays
