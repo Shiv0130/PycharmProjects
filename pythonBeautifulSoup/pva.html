@@ -1,0 +1,480 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        #assistant {
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        #listening, #processing {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #output p {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AI Voice Assistant</title>
+    <script>
+        // Get current weather using OpenWeatherMap API
+        async function getCurrentWeather() {
+            const apiKey = '8f2751d8f8683d4abfc8076553e81b54'; // Replace with your OpenWeatherMap API key
+            const city = 'Durban'; // Replace with the desired city
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+            
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const weatherData = await response.json();
+                    return `The current weather in ${city} is ${weatherData.weather[0].description} with a temperature of ${weatherData.main.temp}°C.`;
+                } else {
+                    return 'Sorry, I could not fetch the weather data at the moment.';
+                }
+            } catch (error) {
+                return 'Sorry, I could not fetch the weather data at the moment.';
+            }
+        }
+
+        // Recognize command by matching against an array of possible commands
+        function recognizeCommand(command, possibleCommands) {
+            return possibleCommands.some(possibleCommand => command.includes(possibleCommand));
+        }
+
+        // Format time in human-readable format
+        function formatTime(hours, minutes) {
+            const period = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            return `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${period}`;
+        }
+
+        // Function to handle voice triggers
+        function handleVoiceTrigger(transcript) {
+            transcript = transcript.toLowerCase();
+            inputText.value = transcript; // Set the input box value
+            processCommand(transcript); // Process the command
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi, we are building AI Voice Prototype</h1>
+        <input id="inputtext" type="text">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="speak">Speak Out</button>
+        <div id="output"></div>
+    </div>
+    <script type="text/javascript">
+        // Elements
+        var startBtn = document.getElementById("start");
+        var stopBtn = document.getElementById("stop");
+        var speakBtn = document.getElementById("speak");
+        var inputText = document.getElementById("inputtext");
+        var outputDiv = document.getElementById("output");
+
+        // Speech recognition setup
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+
+        // Recognition event handlers
+        recognition.onstart = function () {
+            console.log("VR active");
+        };
+
+        recognition.onresult = function(event) {
+            let current = event.resultIndex;
+            let transcript = event.results[current][0].transcript;
+            handleVoiceTrigger(transcript);
+        };
+
+        recognition.onend = function () {
+            console.log("VR deactivated");
+        };
+
+        startBtn.addEventListener("click", function () {
+            recognition.start();
+        });
+
+        stopBtn.addEventListener("click", function () {
+            recognition.stop();
+        });
+
+        function readOut(message) {
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = message;
+            speech.volume = 1;
+            speech.voice = speechSynthesis.getVoices().find(function(voice) {
+                return voice.name === 'Google UK English Male';
+            });
+            window.speechSynthesis.speak(speech);
+        }
+
+        speakBtn.addEventListener("click", function () {
+            readOut("Hi there, I am PVA, designed by Mr Sewnarain, how may I be of service?");
+        });
+
+        inputText.addEventListener("keydown", function(event) {
+            if (event.key === 'Enter') {
+                processCommand(inputText.value.toLowerCase());
+                inputText.value = '';
+            }
+        });
+
+        async function processCommand(command) {
+            command = command.toLowerCase();
+            let response = "";
+
+            // Arrays of possible commands
+            const greetingCommands = ["hi pva", "hey pva", "hello pva","hi there pva","what are you?","what are you","and you are","and you are?"];
+            const pvaDefinitionCommands = ["what does pva stand for", "what is pva","pva is","pva","pva?"];
+            const timeCommands = ["what time is it", "what is the time", "the time now is"];
+            const weatherCommands = ["what is the weather", "what's the weather", "tell me the weather", "what is the current weather","what is the current weather right now","the weather is","the weather now is"];
+            const youtubeCommands = ["open youtube"];
+            const searchCommands = ["search for"];
+            const playCommands = ["play"];
+            const otherCommands = ["open chatgpt", "open studysmarter", "open w3schools","open w3 schools.", "open pdf summarizer ", "open google scholar"];
+            const helpCommands = ["what can you do", "give me a list of commands", "how can you help me","how can you help me?","help me", "what are your commands","are your commands.","commands?","commands."];
+
+            if (recognizeCommand(command, greetingCommands)) {
+                response = "Hi there, I am PVA, how can I help you?";
+            } else if (recognizeCommand(command, pvaDefinitionCommands)) {
+                response = "PVA stands for Prototype Virtual Assistant";
+            } else if (recognizeCommand(command, youtubeCommands)) {
+                response = "Opening YouTube, Sir";
+                window.open("https://www.youtube.com/");
+            } else if (recognizeCommand(command, timeCommands)) {
+                let now = new Date();
+                response = `It is ${formatTime(now.getHours(), now.getMinutes())} right now.`;
+            } else if (recognizeCommand(command, weatherCommands)) {
+                response = await getCurrentWeather();
+            } else if (recognizeCommand(command, searchCommands)) {
+                let searchTerm = command.replace("search for", "").trim();
+                response = `Searching for ${searchTerm}`;
+                window.open(`https://www.google.com/search?q=${searchTerm}`);
+            } else if (recognizeCommand(command, playCommands)) {
+                let song = command.replace("play", "").trim();
+                response = `Playing ${song} on YouTube`;
+                window.open(`https://www.youtube.com/results?search_query=${song}`);
+            } else if (command.includes("open chatgpt")) {
+                response = "Opening ChatGPT, Sir";
+                window.open("https://chat.openai.com/");
+            } else if (command.includes("open studysmarter")) {
+                response = "Opening StudySmarter, Sir";
+                window.open("https://app.studysmarter.de/home");
+            } else if (command.includes("open w3schools")) {
+                response = "Opening W3Schools, Sir";
+                window.open("https://www.w3schools.com/");
+            } else if (command.includes("open pdf summarizer")) {
+                response = "Opening chat PDF, Sir";
+                window.open("https://www.chatpdf.com/c/hQANpbzlKrEqconNmQANB");
+            } else if (command.includes("open google scholar")) {
+                response = "Opening Google Scholar, Sir";
+                window.open("https://scholar.google.com/");
+            } else if (recognizeCommand(command, helpCommands)) {
+                response = "Here is a list of commands I can recognize: \n" +
+                    "1. Greetings: 'hi pva', 'hello pva', etc.\n" +
+                    "2. Ask about PVA: 'what does pva stand for', 'what is pva','pva'\n" +
+                    "3. Get the time: 'what time is it', 'what is the time'\n" +
+                    "4. Get the weather: 'what is the weather', 'tell me the weather'\n" +
+                    "5. Open YouTube: 'open youtube'\n" +
+                    "6. Search Google: 'search for [something]'\n" +
+                    "7. Play a song: 'play [song name]'\n" +
+                    "8. Open various websites: 'open chatgpt', 'open studysmarter', 'open w3schools', 'open pdf.ai', 'open google scholar'\n";
+            }else if(command.includes("open google")){
+                response ="Opening Google Sir ";
+                window.open("https://www.google.co.za/?gws_rd=ssl");
+
+            } else {
+                response = "I didn't quite catch that, please try again.";
+            }
+
+            readOut(response);
+            outputDiv.innerHTML += `<p>${response.replace(/\n/g, '<br>')}</p>`;
+        }
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+        }
+
+        #assistant {
+            margin-bottom: 20px;
+        }
+
+        .status {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+        #listening, #processing {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #output {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        #output p {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            width: 70%;
+            padding: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ddd;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AI Voice Assistant</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+    <script>
+        // Get current weather using OpenWeatherMap API
+        async function getCurrentWeather() {
+            const apiKey = '8f2751d8f8683d4abfc8076553e81b54'; // Replace with your OpenWeatherMap API key
+            const city = 'Durban'; // Replace with the desired city
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+            
+            try {
+                const response = await fetch(url);
+                if (response.ok) {
+                    const weatherData = await response.json();
+                    return `The current weather in ${city} is ${weatherData.weather[0].description} with a temperature of ${weatherData.main.temp}°C.`;
+                } else {
+                    return 'Sorry, I could not fetch the weather data at the moment.';
+                }
+            } catch (error) {
+                return 'Sorry, I could not fetch the weather data at the moment.';
+            }
+        }
+
+        // Recognize command by matching against an array of possible commands
+        function recognizeCommand(command, possibleCommands) {
+            return possibleCommands.some(possibleCommand => command.includes(possibleCommand));
+        }
+
+        // Format time in human-readable format
+        function formatTime(hours, minutes) {
+            const period = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12 || 12;
+            return `${hours}:${minutes < 10 ? '0' + minutes : minutes} ${period}`;
+        }
+
+        // Function to handle voice triggers
+        function handleVoiceTrigger(transcript) {
+            transcript = transcript.toLowerCase();
+            inputText.value = transcript; // Set the input box value
+            processCommand(transcript); // Process the command
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Hi, we are building AI Voice Prototype</h1>
+        <input id="inputtext" type="text">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="speak">Speak Out</button>
+        <div id="output"></div>
+    </div>
+    <script type="text/javascript">
+        // Elements
+        var startBtn = document.getElementById("start");
+        var stopBtn = document.getElementById("stop");
+        var speakBtn = document.getElementById("speak");
+        var inputText = document.getElementById("inputtext");
+        var outputDiv = document.getElementById("output");
+
+        // Speech recognition setup
+        var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        var recognition = new SpeechRecognition();
+
+        // Recognition event handlers
+        recognition.onstart = function () {
+            console.log("VR active");
+        };
+
+        recognition.onresult = function(event) {
+            let current = event.resultIndex;
+            let transcript = event.results[current][0].transcript;
+            handleVoiceTrigger(transcript);
+        };
+
+        recognition.onend = function () {
+            console.log("VR deactivated");
+        };
+
+        startBtn.addEventListener("click", function () {
+            recognition.start();
+        });
+
+        stopBtn.addEventListener("click", function () {
+            recognition.stop();
+        });
+
+        function readOut(message) {
+            var speech = new SpeechSynthesisUtterance();
+            speech.text = message;
+            speech.volume = 1;
+            speech.voice = speechSynthesis.getVoices().find(function(voice) {
+                return voice.name === 'Google UK English Male';
+            });
+            window.speechSynthesis.speak(speech);
+        }
+
+        speakBtn.addEventListener("click", function () {
+            readOut("Hi there, I am PVA, designed by Mr Sewnarain, how may I be of service?");
+        });
+
+        inputText.addEventListener("keydown", function(event) {
+            if (event.key === 'Enter') {
+                processCommand(inputText.value.toLowerCase());
+                inputText.value = '';
+            }
+        });
+
+        async function processCommand(command) {
+            command = command.toLowerCase();
+            let response = "";
+
+            // Arrays of possible commands
+            const greetingCommands = ["hi pva", "hey pva", "hello pva","hi there pva","what are you?","what are you","and you are","and you are?"];
+            const pvaDefinitionCommands = ["what does pva stand for", "what is pva","pva is","pva","pva?"];
+            const timeCommands = ["what time is it", "what is the time", "the time now is"];
+            const weatherCommands = ["what is the weather", "what's the weather", "tell me the weather", "what is the current weather","what is the current weather right now","the weather is","the weather now is"];
+            const youtubeCommands = ["open youtube"];
+            const searchCommands = ["search for"];
+            const playCommands = ["play"];
+            const otherCommands = ["open chatgpt", "open studysmarter", "open w3schools","open w3 schools.", "open pdf summarizer ", "open google scholar"];
+            const helpCommands = ["what can you do", "give me a list of commands", "how can you help me","how can you help me?","help me", "what are your commands","are your commands.","commands?","commands."];
+
+            if (recognizeCommand(command, greetingCommands)) {
+                response = "Hi there, I am PVA, how can I help you?";
+            } else if (recognizeCommand(command, pvaDefinitionCommands)) {
+                response = "PVA stands for Prototype Virtual Assistant";
+            } else if (recognizeCommand(command, youtubeCommands)) {
+                response = "Opening YouTube, Sir";
+                window.open("https://www.youtube.com/");
+            } else if (recognizeCommand(command, timeCommands)) {
+                let now = new Date();
+                response = `It is ${formatTime(now.getHours(), now.getMinutes())} right now.`;
+            } else if (recognizeCommand(command, weatherCommands)) {
+                response = await getCurrentWeather();
+            } else if (recognizeCommand(command, searchCommands)) {
+                let searchTerm = command.replace("search for", "").trim();
+                response = `Searching for ${searchTerm}`;
+                window.open(`https://www.google.com/search?q=${searchTerm}`);
+            } else if (recognizeCommand(command, playCommands)) {
+                let song = command.replace("play", "").trim();
+                response = `Playing ${song} on YouTube`;
+                window.open(`https://www.youtube.com/results?search_query=${song}`);
+            } else if (command.includes("open chatgpt")) {
+                response = "Opening ChatGPT, Sir";
+                window.open("https://chat.openai.com/");
+            } else if (command.includes("open studysmarter")) {
+                response = "Opening StudySmarter, Sir";
+                window.open("https://app.studysmarter.de/home");
+            } else if (command.includes("open w3schools")) {
+                response = "Opening W3Schools, Sir";
+                window.open("https://www.w3schools.com/");
+            } else if (command.includes("open pdf summarizer")) {
+                response = "Opening chat PDF, Sir";
+                window.open("https://www.chatpdf.com/c/hQANpbzlKrEqconNmQANB");
+            } else if (command.includes("open google scholar")) {
+                response = "Opening Google Scholar, Sir";
+                window.open("https://scholar.google.com/");
+            } else if (recognizeCommand(command, helpCommands)) {
+                response = "Here is a list of commands I can recognize: \n" +
+                    "1. Greetings: 'hi pva', 'hello pva', etc.\n" +
+                    "2. Ask about PVA: 'what does pva stand for', 'what is pva','pva'\n" +
+                    "3. Get the time: 'what time is it', 'what is the time'\n" +
+                    "4. Get the weather: 'what is the weather', 'tell me the weather'\n" +
+                    "5. Open YouTube: 'open youtube'\n" +
+                    "6. Search Google: 'search for [something]'\n" +
+                    "7. Play a song: 'play [song name]'\n" +
+                    "8. Open various websites: 'open chatgpt', 'open studysmarter', 'open w3schools', 'open pdf.ai', 'open google scholar'\n";
+            }else if(command.includes("open google")){
+                response ="Opening Google Sir ";
+                window.open("https://www.google.co.za/?gws_rd=ssl");
+
+            } else {
+                response = "I didn't quite catch that, please try again.";
+            }
+
+            readOut(response);
+            outputDiv.innerHTML += `<p>${response.replace(/\n/g, '<br>')}</p>`;
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

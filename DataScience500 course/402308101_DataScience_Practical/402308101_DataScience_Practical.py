@@ -172,7 +172,7 @@ print(df.tail())
 #12. Showing number of rows and columns
 print(df.shape)
 
-# All column names
+#13. All column names
 print(df.columns)
 
 # Data types for every column

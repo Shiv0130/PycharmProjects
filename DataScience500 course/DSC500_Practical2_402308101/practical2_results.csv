@@ -1,0 +1,13 @@
+Student_ID,Programme,Study_Hours,Sleep_Hours,Satisfaction_Level,Attendance_Percentage,Test_Score,Performance
+S001,IT,6,7.0,4,88,72,Pass
+S002,IT,10,6.0,3,92,85,Pass
+S003,Business,4,8.0,5,76,64,Pass
+S004,IT,12,5.5,2,95,91,Pass
+S005,Business,7,7.5,4,84,75,Pass
+S006,IT,9,6.5,4,89,82,Pass
+S007,Business,5,8.0,5,73,60,Pass
+S008,IT,11,6.0,3,94,88,Pass
+S009,Business,8,7.0,4,86,79,Pass
+S010,IT,3,8.5,2,68,55,Pass
+S011,Business,6,7.5,5,81,70,Pass
+S012,IT,10,6.5,4,90,84,Pass
