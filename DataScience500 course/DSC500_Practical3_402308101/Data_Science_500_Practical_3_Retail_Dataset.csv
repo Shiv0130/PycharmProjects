@@ -1,0 +1,49 @@
+Month,Month_Number,Branch,Product_Category,Units_Sold,Sales_Revenue,Operating_Expenses,Customers,Satisfaction_Score,Returns
+January,1,Durban,Laptops,85,765000,515000,310,4.2,6
+January,1,Johannesburg,Smartphones,120,720000,468000,405,4.0,10
+January,1,Cape Town,Tablets,74,333000,219000,270,4.3,5
+January,1,Online,Accessories,165,148500,82000,390,3.9,14
+February,2,Durban,Smartphones,102,612000,398000,350,4.1,8
+February,2,Johannesburg,Laptops,93,837000,552000,330,4.4,5
+February,2,Cape Town,Accessories,188,169200,94000,420,4.0,13
+February,2,Online,Tablets,89,400500,258000,305,4.2,7
+March,3,Durban,Tablets,96,432000,276000,325,4.0,9
+March,3,Johannesburg,Accessories,214,192600,106000,470,4.1,17
+March,3,Cape Town,Laptops,88,792000,526000,315,4.5,4
+March,3,Online,Smartphones,137,822000,535000,455,4.3,11
+April,4,Durban,Accessories,205,184500,101000,450,3.8,18
+April,4,Johannesburg,Tablets,105,472500,301000,360,4.2,8
+April,4,Cape Town,Smartphones,128,768000,499000,430,4.1,10
+April,4,Online,Laptops,79,711000,479000,285,4.4,5
+May,5,Durban,Laptops,98,882000,579000,345,4.5,4
+May,5,Johannesburg,Smartphones,146,876000,566000,495,4.3,9
+May,5,Cape Town,Tablets,112,504000,322000,380,4.2,7
+May,5,Online,Accessories,248,223200,121000,535,4.0,16
+June,6,Durban,Smartphones,139,834000,541000,475,4.2,10
+June,6,Johannesburg,Laptops,110,990000,651000,390,4.6,3
+June,6,Cape Town,Accessories,256,230400,125000,550,4.1,15
+June,6,Online,Tablets,126,567000,361000,425,4.3,8
+July,7,Durban,Tablets,121,544500,346000,410,4.3,7
+July,7,Johannesburg,Accessories,279,251100,136000,600,4.0,19
+July,7,Cape Town,Laptops,115,1035000,683000,405,4.7,3
+July,7,Online,Smartphones,158,948000,611000,530,4.4,9
+August,8,Durban,Accessories,268,241200,131000,575,4.1,16
+August,8,Johannesburg,Tablets,132,594000,378000,445,4.4,6
+August,8,Cape Town,Smartphones,151,906000,587000,510,4.3,8
+August,8,Online,Laptops,104,936000,626000,370,4.6,4
+September,9,Durban,Laptops,119,1071000,707000,420,4.6,3
+September,9,Johannesburg,Smartphones,169,1014000,654000,565,4.5,7
+September,9,Cape Town,Tablets,141,634500,403000,475,4.4,6
+September,9,Online,Accessories,302,271800,147000,645,4.2,18
+October,10,Durban,Smartphones,163,978000,632000,545,4.4,8
+October,10,Johannesburg,Laptops,128,1152000,759000,450,4.7,2
+October,10,Cape Town,Accessories,315,283500,153000,670,4.2,17
+October,10,Online,Tablets,149,670500,426000,500,4.5,5
+November,11,Durban,Tablets,158,711000,451000,525,4.5,5
+November,11,Johannesburg,Accessories,368,331200,179000,775,4.3,20
+November,11,Cape Town,Laptops,147,1323000,872000,515,4.8,2
+November,11,Online,Smartphones,196,1176000,758000,650,4.6,7
+December,12,Durban,Accessories,395,355500,192000,825,4.3,22
+December,12,Johannesburg,Tablets,181,814500,516000,600,4.6,5
+December,12,Cape Town,Smartphones,218,1308000,843000,720,4.7,6
+December,12,Online,Laptops,166,1494000,983000,575,4.9,1
