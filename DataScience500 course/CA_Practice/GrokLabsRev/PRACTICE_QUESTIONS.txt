@@ -1,0 +1,59 @@
+DSC500 CA PRACTICE — Questions (do these in order)
+CSV: practice_students.csv
+Put the CSV in the SAME folder as the .py files inside
+  PycharmProjects / DataScience500 course / 402308101_BooksToScrape_Assignment
+  OR a new folder: DataScience500 course / CA_Practice
+
+============================================================
+LAB A — PANDAS ONLY   (file: LAB_A_pandas.py)
+============================================================
+1. Load the CSV and print head, shape, info, describe.
+2. Print missing values per column and value_counts of City.
+3. Add Grade: A if Marks >= 80, B if >= 70, else C.
+4. Print only Grade A rows.
+5. Sort the whole table by Marks descending.
+6. Print mean Marks by City.
+
+Write answers in comments at the bottom:
+# How many A students?
+# Which city has the highest mean?
+
+============================================================
+LAB B — NUMPY ONLY   (file: LAB_B_numpy.py)
+============================================================
+1. Store Marks as an ndarray (list is already in the file).
+2. Print dtype, mean, median, std, min, max.
+3. Print all marks >= 75 and how many there are.
+4. Print the 89th percentile VALUE and the percentile RANK of score 89.
+   (They are different — see comments in the file.)
+5. Print the index of the highest mark.
+
+============================================================
+LAB C — PANDAS + NUMPY   (file: LAB_C_pandas_numpy.py)
+============================================================
+1. Load CSV. Convert Marks and StudyHours to numpy arrays.
+2. Print students whose marks are above the class mean.
+3. Add columns AboveMean and Z_Marks.
+4. Filter StudyHours > 10 AND Marks >= 80.
+
+============================================================
+LAB D — MATPLOTLIB ONLY   (file: LAB_D_matplotlib.py)
+============================================================
+1. Bar chart: subject vs average marks. Labels + title + grid.
+2. Scatter: hours vs scores, marker='^', figsize=(10,6).
+
+============================================================
+LAB E — ALL TOGETHER   (file: LAB_E_all_together.py)
+============================================================
+1. Load CSV, Grade column, NumPy mean + distinction count.
+2. Scatter + orange trend line (np.polyfit).
+3. Horizontal bar of mean marks by city, sorted.
+4. Histogram of marks.
+
+============================================================
+WHEN YOU SAY "TEST ME"
+============================================================
+I will send the SAME tasks with blanks and comments like:
+    df["Grade"] = ________
+    print(marks[________])
+No full answers on those — you fill, I mark.
